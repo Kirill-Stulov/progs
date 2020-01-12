@@ -24,7 +24,7 @@ class Check
 			@@st_and_tr[@station] << @number                                                                                    # и добавляем поезд @number к уже существующей станции @station. 
 	        puts "Поезд №#{@number} отбыл со станции #{@current_st[0]} и прибыл на станцию #{@station}"
 	        p @@st_and_tr
-	    elsif @@st_and_tr.keys.any?{|key| key == @station} && @@st_and_tr.values.any?{|val| val.include?(@number)} == false   # 4. Если такая станция @station отдельно существует в какой-либо из пар в массиве @@st_and_tr И номер поезда @number НЕ существует в какой-либо из пар в массиве @@st_and_tr
+	    elsif @@st_and_tr.keys.any?{|key| key == @station} && !@@st_and_tr.values.any?{|val| val.include?(@number)} #== false   # 4. Если такая станция @station отдельно существует в какой-либо из пар в массиве @@st_and_tr И номер поезда @number НЕ существует в какой-либо из пар в массиве @@st_and_tr
 	    	@@st_and_tr[@station] << @number                        															#  то сразу добавляем поезд @number к уже существующей станции @station. Т.к поезд новый и нигде его еще не было.			
 	    	puts "Еще один поезд под номером #{@number} приехал на станцию #{@station}"
 	    	p @@st_and_tr
